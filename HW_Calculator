@@ -38,7 +38,6 @@
         android:layout_marginTop="16dp"
         android:columnCount="4">
 
-        <!-- Кнопки цифр -->
         <Button android:id="@+id/button0" android:text="0" style="@style/ButtonStyle" />
         <Button android:id="@+id/button1" android:text="1" style="@style/ButtonStyle" />
         <Button android:id="@+id/button2" android:text="2" style="@style/ButtonStyle" />
@@ -50,7 +49,6 @@
         <Button android:id="@+id/button8" android:text="8" style="@style/ButtonStyle" />
         <Button android:id="@+id/button9" android:text="9" style="@style/ButtonStyle" />
 
-        <!-- Кнопки операций -->
         <Button android:id="@+id/buttonAdd" android:text="+" style="@style/ButtonStyle" />
         <Button android:id="@+id/buttonSubtract" android:text="-" style="@style/ButtonStyle" />
         <Button android:id="@+id/buttonMultiply" android:text="*" style="@style/ButtonStyle" />
