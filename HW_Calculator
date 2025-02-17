@@ -1,0 +1,161 @@
+1) Файл activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите число"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textViewOperation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextInput"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewOperation"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewResult"
+        android:layout_marginTop="16dp"
+        android:columnCount="4">
+
+        <!-- Кнопки цифр -->
+        <Button android:id="@+id/button0" android:text="0" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button1" android:text="1" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button2" android:text="2" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button3" android:text="3" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button4" android:text="4" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button5" android:text="5" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button6" android:text="6" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button7" android:text="7" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button8" android:text="8" style="@style/ButtonStyle" />
+        <Button android:id="@+id/button9" android:text="9" style="@style/ButtonStyle" />
+
+        <!-- Кнопки операций -->
+        <Button android:id="@+id/buttonAdd" android:text="+" style="@style/ButtonStyle" />
+        <Button android:id="@+id/buttonSubtract" android:text="-" style="@style/ButtonStyle" />
+        <Button android:id="@+id/buttonMultiply" android:text="*" style="@style/ButtonStyle" />
+        <Button android:id="@+id/buttonDivide" android:text="/" style="@style/ButtonStyle" />
+        <Button android:id="@+id/buttonEquals" android:text="=" style="@style/ButtonStyle" />
+        <Button android:id="@+id/buttonClear" android:text="AC" style="@style/ButtonStyle" />
+    </GridLayout>
+
+</RelativeLayout>
+
+2) res/values/styles.xml
+
+<resources>
+    <style name="ButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+</resources>
+
+3) MainActivity.kt
+
+package com.example.calculator
+
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+ import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var editTextInput: EditText
+    private lateinit var textViewOperation: TextView
+    private lateinit var textViewResult: TextView
+
+    private var currentOperation: String? = null
+    private var firstValue: Double = 0.0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        editTextInput = findViewById(R.id.editTextInput)
+        textViewOperation = findViewById(R.id.textViewOperation)
+        textViewResult = findViewById(R.id.textViewResult)
+
+        setupButtons()
+    }
+
+    private fun setupButtons() {
+        val buttons = listOf(
+            R.id.button0, R.id.button1, R.id.button2, R.id.button3,
+            R.id.button4, R.id.button5, R.id.button6, R.id.button7,
+            R.id.button8, R.id.button9
+        )
+
+        buttons.forEach { id ->
+            findViewById<Button>(id).setOnClickListener { onNumberButtonClick((it as Button).text.toString()) }
+        }
+
+        findViewById<Button>(R.id.buttonAdd).setOnClickListener { onOperationButtonClick("+") }
+        findViewById<Button>(R.id.buttonSubtract).setOnClickListener { onOperationButtonClick("-") }
+        findViewById<Button>(R.id.buttonMultiply).setOnClickListener { onOperationButtonClick("*") }
+        findViewById<Button>(R.id.buttonDivide).setOnClickListener { onOperationButtonClick("/") }
+        findViewById<Button>(R.id.buttonEquals).setOnClickListener { onEqualsButtonClick() }
+        findViewById<Button>(R.id.buttonClear).setOnClickListener { onClearButtonClick() }
+    }
+
+    private fun onNumberButtonClick(number: String) {
+        editTextInput.append(number)
+    }
+
+    private fun onOperationButtonClick(operation: String) {
+        if (editTextInput.text.isNotEmpty()) {
+            firstValue = editTextInput.text.toString().toDouble()
+            currentOperation = operation
+            textViewOperation.text = operation
+            editTextInput.text.clear()
+        }
+    }
+
+    private fun onEqualsButtonClick() {
+        if (editTextInput.text.isNotEmpty() && currentOperation != null) {
+            val secondValue = editTextInput.text.toString().toDouble()
+            val result = when (currentOperation) {
+                "+" -> firstValue + secondValue
+                "-" -> firstValue - secondValue
+                "*" -> firstValue * secondValue
+                "/" -> if (secondValue != 0.0) firstValue / secondValue else "Ошибка"
+                else -> 0.0
+            }
+            textViewResult.text = result.toString()
+            editTextInput.text.clear()
+            currentOperation = null
+        }
+    }
+
+    private fun onClearButtonClick() {
+        editTextInput.text.clear()
+        textViewOperation.text = ""
+        textViewResult.text = ""
+        currentOperation = null
+    }
+}
