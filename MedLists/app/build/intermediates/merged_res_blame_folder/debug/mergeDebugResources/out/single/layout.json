@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\item_medicine.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\item_medicine.xml"
+    },
+    {
+        "merged": "com.example.medlists.app-mergeDebugResources-65:/layout/activity_add_item.xml",
+        "source": "com.example.medlists.app-main-68:/layout/activity_add_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\fragment_disease.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\fragment_disease.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\fragment_third.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\fragment_third.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\fragment_second.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\fragment_second.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\fragment_first.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\fragment_first.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\fragment_doctor.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\fragment_doctor.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\fragment_medicine.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\fragment_medicine.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\item_disease.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\item_disease.xml"
+    },
+    {
+        "merged": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-mergeDebugResources-65:\\layout\\item_doctor.xml",
+        "source": "C:\\Users\\XE\\.gradle\\daemon\\8.11.1\\com.example.medlists.app-main-68:\\layout\\item_doctor.xml"
+    }
+]
